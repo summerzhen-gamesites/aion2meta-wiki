@@ -178,6 +178,7 @@ def page(title, description, slug, main, extra_class=""):
   <script type="application/ld+json">{json_ld(schema)}</script>
 {analytics}
   <script defer src="/assets/site.js"></script>
+<style>.top-sticky-ad{{position:sticky;top:0;z-index:45;display:flex;justify-content:center;padding:8px;background:rgba(8,10,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}}.top-sticky-ad iframe{{border:0;max-width:calc(100vw - 16px);background:transparent}}</style>
 </head>
 <body class="{extra_class}">
   <a class="skip" href="#content">Skip to content</a>
@@ -185,6 +186,7 @@ def page(title, description, slug, main, extra_class=""):
     <a class="brand" href="/"><span class="brand-mark">A2</span><span>{SITE['name']}</span></a>
     <nav aria-label="Primary">{nav}</nav>
   </header>
+  <aside class="top-sticky-ad" data-ad-placement="top-sticky" aria-label="Sponsored"><iframe src="/ads/banner-320x50.html" title="Sponsored" width="320" height="50" loading="eager" scrolling="no" sandbox="allow-scripts"></iframe></aside>
   <main id="content">{main}</main>
   <footer class="site-footer">
     <div>
