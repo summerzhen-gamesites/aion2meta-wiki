@@ -8,8 +8,8 @@ ROOT = Path(os.environ.get("AION2_OUTPUT_DIR", BASE))
 SITE = {
     "name": "AION 2 Meta",
     "domain": "aion2meta.wiki",
-    "tagline": "Global Launch Scale Test status, builds, classes and launch guides for AION 2.",
-    "updated": "September 17, 2026",
+    "tagline": "Global server status, build evidence, classes and launch guides for AION 2.",
+    "updated": "September 19, 2026",
 }
 GA_MEASUREMENT_ID = os.environ.get("NEXT_PUBLIC_GA_MEASUREMENT_ID", "").strip()
 GOOGLE_SITE_VERIFICATION = os.environ.get("NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION", "").strip()
@@ -37,9 +37,9 @@ CLASS_DATA = {
 }
 
 OFFICIAL_FACTS = [
-    ("Launch Scale Test", "Global testing is scheduled for September 17-18, 2026, with Steam and PURPLE access."),
+    ("Launch Scale Test", "The Global Launch Scale Test has ended; the site is now tracking the Advanced Access preparation window."),
     ("LST Level Cap", "The Launch Scale Test is framed around limited test progression up to level 37."),
-    ("Test Progress", "Launch Scale Test progress should be treated as temporary test data, not launch progression."),
+    ("Test Progress", "Launch Scale Test progress was temporary test data, not launch progression."),
     ("Launch Date", "Steam lists AION 2 as unlocking on October 5, 2026."),
     ("Advance Access", "Founder Pack early access is advertised for September 30, 2026."),
     ("Engine", "Steam describes AION 2 as built on Unreal Engine 5."),
@@ -191,7 +191,7 @@ def page(title, description, slug, main, extra_class=""):
   <footer class="site-footer">
     <div>
       <strong>{SITE['name']}</strong>
-      <p>{SITE['tagline']} Current status: Launch Scale Test tracking. Last updated: {SITE['updated']}.</p>
+      <p>{SITE['tagline']} Current status: Launch Scale Test ended; Advanced Access preparation. Last updated: {SITE['updated']}.</p>
     </div>
     <p class="small">Unofficial fan resource. AION 2 belongs to its respective publisher and developer. Pages distinguish Official, KR/TW Reference, Global Verified and Unconfirmed information.</p>
   </footer>
@@ -212,8 +212,8 @@ def hero(title, text, eyebrow="Global Meta Tracker"):
   <div class="status-panel" aria-label="Global launch status">
     <span class="status-dot"></span>
     <strong>Current Global Status</strong>
-    <p>Launch Scale Test window. Server, build and class notes are tracked separately from final launch progression.</p>
-    <dl><div><dt>Launch Scale Test</dt><dd>Sep 17-18, 2026</dd></div><div><dt>Advance Access</dt><dd>Sep 30, 2026</dd></div><div><dt>Full Launch</dt><dd>Oct 5, 2026</dd></div></dl>
+    <p>Launch Scale Test ended. No live Global server is available until the next access window; build and class notes remain separate from final launch progression.</p>
+    <dl><div><dt>Launch Scale Test</dt><dd>Ended</dd></div><div><dt>Advanced Access</dt><dd>Sep 30, 2026</dd></div><div><dt>Official Launch</dt><dd>Oct 5, 2026</dd></div></dl>
   </div>
 </section>"""
 
@@ -241,7 +241,7 @@ def class_compare_table():
     return table_html("AION 2 class comparison by archetype, role, range and beginner fit", "<tr><th>Class</th><th>Archetype</th><th>Role</th><th>Range</th><th>Difficulty</th><th>Beginner Note</th></tr>", "".join(rows))
 
 def source_note():
-    return "<p class='source-note'>Source status: Steam / official storefront facts are treated as Official. Class ranking, build strength, economy and PvP dominance remain unverified for Global until launch testing.</p>"
+    return "<p class='source-note'>Source status: Steam / official storefront facts are treated as Official. Class ranking, build strength, economy and PvP dominance remain unverified until Global launch evidence is available.</p>"
 
 def sources_section(extra=""):
     links = "<ul><li><a href='https://store.steampowered.com/app/3393110/AION_2/' target='_blank' rel='noopener noreferrer'>AION 2 on Steam</a> for launch date, gameplay pillars, dungeons, customization and PC requirements.</li><li><a href='https://store.steampowered.com/app/4972180/AION_2_FOUNDERS_PACK/' target='_blank' rel='noopener noreferrer'>AION 2 Founder's Pack on Steam</a> for edition names, prices and advance access framing.</li></ul>"
@@ -250,11 +250,11 @@ def sources_section(extra=""):
     return content_section("Sources", links)
 
 home_cards = "".join([
-    card("Launch Scale Test", "Dates, playtest schedule, Steam/PURPLE access, level cap and wipe notes for the September test.", "/launch-scale-test/", "P0"),
-    card("Server Status", "Live status, maintenance, queue and connection issue hub for Launch Scale Test and launch windows.", "/server-status/", "P0"),
+    card("Launch Scale Test", "Ended test details, Steam/PURPLE access notes, level cap and wipe context for the September test.", "/launch-scale-test/", "P0"),
+    card("Server Status", "Pre-launch server status, maintenance, queue and connection issue hub for Steam and PURPLE players.", "/server-status/", "P0"),
     card("Current Meta", "Versioned class tier matrix for Global launch, with evidence labels before any rating becomes final.", "/tier-list/class-tier-list/", "P0"),
     card("Choose Your Class", "Eight launch class overviews split by role, difficulty, PvE, PvP and who should play them.", "/classes/", "P0"),
-    card("Launch Test Builds", "Level 37, starter, PvE and PvP build routing for all eight Global launch classes.", "/builds/", "P0"),
+    card("Build Evidence", "Post-LST starter, PvE and PvP build evidence status for all eight Global launch classes.", "/builds/", "P0"),
     card("Founder Pack", "Standard, Deluxe and Ultimate purchase-decision guide for players comparing early access value.", "/founders-pack/", "P1"),
     card("Dungeons", "Global dungeon hub for Launch Scale Test names, party setup, boss mechanics and rewards.", "/dungeons/", "P1"),
     card("Global vs KR/TW", "A clear separation between official Global facts and regional reference data.", "/meta/global-vs-korea/", "Moat"),
@@ -270,15 +270,15 @@ classes_cards = "".join(card(name, desc, f"/classes/{slug}/", role) for slug, na
 class_picker = "<div class='table-wrap'><table><thead><tr><th>I want to...</th><th>Start with</th><th>Why</th></tr></thead><tbody><tr><th>Tank for groups</th><td>Templar</td><td>Clear frontline and defensive responsibility.</td></tr><tr><th>Heal groups</th><td>Cleric</td><td>Primary recovery role with high party value.</td></tr><tr><th>Play support without pure healing</th><td>Chanter</td><td>Hybrid support with buffs and damage contribution.</td></tr><tr><th>Use ranged physical pressure</th><td>Ranger</td><td>Spacing, kiting and steady damage are the role fantasy.</td></tr><tr><th>Use ranged magic burst</th><td>Sorcerer</td><td>Clear caster identity with burst windows.</td></tr><tr><th>Play fast melee burst</th><td>Assassin</td><td>Higher-skill pick focused on timing and target selection.</td></tr><tr><th>Play durable melee</th><td>Gladiator</td><td>Forgiving melee pressure and frontline uptime.</td></tr><tr><th>Manage pets and utility</th><td>Spiritmaster</td><td>More complex summoner/control identity.</td></tr></tbody></table></div>"
 write("classes/", page("AION 2 Classes", "Compare all eight AION 2 launch classes by role, playstyle, difficulty and Launch Scale Test fit.", "classes", hero("AION 2 Classes", "Pick a Launch Scale Test class by role, difficulty and intended activity without pretending the final Global meta is solved.", "Class Hub") + content_section("Which AION 2 Class Should You Play?", class_picker) + content_section("Class Comparison", class_compare_table()) + f"<section class='section'><div class='grid cards'>{classes_cards}</div></section>"))
 
-build_cards = "".join(card(f"Best {name} Build", f"Structured {name} build shell for PvE, PvP and Solo, ready for Global launch verification.", f"/builds/{slug}-build/", "Build") for slug, name, *_ in CLASSES)
-lst_builds = "<div class='notice'><b>Launch Scale Test Builds:</b> Use these pages for level 37, starter, PvE and PvP planning during the September 17-18 test. They are separate from endgame KR/TW reference builds and will stay labeled until Global data is verified.</div>"
-build_matrix = "<div class='table-wrap'><table><thead><tr><th>Class</th><th>Launch Test Focus</th><th>Build Page</th></tr></thead><tbody>" + "".join(f"<tr><th>{name}</th><td>{'Tank / group safety' if slug == 'templar' else 'Healer / solo fallback' if slug == 'cleric' else 'Support / group utility' if slug == 'chanter' else 'Ranged physical leveling and PvP' if slug == 'ranger' else 'Melee burst and PvP pressure' if slug == 'assassin' else 'Durable melee leveling' if slug == 'gladiator' else 'Magic burst and AoE' if slug == 'sorcerer' else 'Solo utility and pet control'}</td><td><a href='/builds/{slug}-build/'>Open {name} build</a></td></tr>" for slug, name, *_ in CLASSES) + "</tbody></table></div>"
-write("builds/", page("AION 2 Builds - Launch Scale Test PvE & PvP Builds", "AION 2 builds hub for Launch Scale Test, level 37 starter builds, PvE, PvP and all eight Global launch classes.", "builds", hero("AION 2 Builds", "Launch Scale Test build hub for level 37, starter, PvE and PvP planning across all eight Global classes.", "Build Hub") + content_section("Launch Scale Test Builds", lst_builds + build_matrix) + f"<section class='section'><div class='grid cards'>{build_cards}</div></section>"))
+build_cards = "".join(card(f"{name} Build Evidence", f"Starter/PvE/PvP evidence status for {name}: verified fields pending, skills/rotation/stats/gear TBD, test observation needed.", f"/builds/{slug}-build/", "Build") for slug, name, *_ in CLASSES)
+lst_builds = "<div class='notice'><b>Launch Scale Test ended:</b> Global build evidence is being verified before any skill, rotation, stats, gear or BIS claim is published. Use this hub to pick the class build page and see which fields remain TBD.</div>"
+build_matrix = "<div class='table-wrap'><table><thead><tr><th>Class</th><th>Evidence Status</th><th>Build Page</th></tr></thead><tbody>" + "".join(f"<tr><th>{name}</th><td>{'Tank / group safety' if slug == 'templar' else 'Healer / solo fallback' if slug == 'cleric' else 'Support / group utility' if slug == 'chanter' else 'Ranged physical leveling and PvP' if slug == 'ranger' else 'Melee burst and PvP pressure' if slug == 'assassin' else 'Durable melee leveling' if slug == 'gladiator' else 'Magic burst and AoE' if slug == 'sorcerer' else 'Solo utility and pet control'}; verified fields pending; skills/rotation/stats/gear TBD.</td><td><a href='/builds/{slug}-build/'>Open {name} build</a></td></tr>" for slug, name, *_ in CLASSES) + "</tbody></table></div>"
+write("builds/", page("AION 2 Builds - Post-LST PvE & PvP Build Evidence", "AION 2 builds hub for post-LST evidence status, starter build pages, PvE, PvP and all eight Global launch classes.", "builds", hero("AION 2 Builds", "Post-LST build evidence hub for starter, PvE and PvP planning across all eight Global classes while verified data remains pending.", "Build Hub") + content_section("Global Build Evidence", lst_builds + build_matrix) + f"<section class='section'><div class='grid cards'>{build_cards}</div></section>"))
 
 for slug, name, role, desc, diff in CLASSES:
     data = CLASS_DATA[slug]
     body = hero(f"AION 2 {name}", desc, role)
-    body += content_section("Quick Verdict", f"<div class='summary'><div><b>Archetype</b><span>{data['archetype']}</span></div><div><b>Role</b><span>{role}</span></div><div><b>Difficulty</b><span>{diff}</span></div><div><b>Global Tier</b><span>TBD until launch testing</span></div><div><b>Party Job</b><span>{data['party']}</span></div><div><b>Range</b><span>{data['range']}</span></div><div><b>Beginner Note</b><span>{data['beginner']}</span></div><div><b>Build</b><span><a href='/builds/{slug}-build/'>Best {name} Build</a></span></div></div>")
+    body += content_section("Quick Verdict", f"<div class='summary'><div><b>Archetype</b><span>{data['archetype']}</span></div><div><b>Role</b><span>{role}</span></div><div><b>Difficulty</b><span>{diff}</span></div><div><b>Global Tier</b><span>TBD until Global evidence is verified</span></div><div><b>Party Job</b><span>{data['party']}</span></div><div><b>Range</b><span>{data['range']}</span></div><div><b>Beginner Note</b><span>{data['beginner']}</span></div><div><b>Build</b><span><a href='/builds/{slug}-build/'>Best {name} Build</a></span></div></div>")
     body += content_section("Who Should Play This Class", f"<p>{name} is a good candidate if the role fantasy fits you. The Global launch meta is not final, so this page separates playstyle confidence from unverified ranking claims.</p><ul><li>Use this class page to understand identity and fit.</li><li>Use the build page for skills, stats, rotation and patch notes.</li><li>Use the tier list for activity-by-activity ranking once Global data exists.</li></ul>")
     body += content_section("PvE, PvP And Solo Outlook", "<p>Pre-launch outlook is intentionally conservative. Activity ratings will move from TBD to a letter-grade rank only when the Global client, patch state and repeatable evidence support the rating.</p>")
     body += content_section("What To Verify At Global Launch", f"<ul><li>{data['watch']}</li><li>Real skill values, cooldowns and animation locks in the Global client.</li><li>Dungeon performance in solo, 5-player and 10-player formats.</li><li>How the class performs in 1v1, small-scale and large-scale PvP separately.</li></ul>")
@@ -359,7 +359,7 @@ body += content_section("Confirmed Steam Facts", facts_grid())
 body += content_section("What To Prepare", "<ul><li>Pick two candidate classes instead of locking to a fake pre-launch tier.</li><li>Bookmark class, PvE and PvP tier pages for launch-day updates.</li><li>Check Founder Pack value only if early access or cosmetics matter to you.</li></ul>")
 write("release-date/", page("AION 2 Release Date", "AION 2 release date, advance access timing and launch preparation checklist.", "release-date", body))
 
-body = hero("AION 2 Launch Scale Test", "September 17-18 Global test hub for schedule, Steam and PURPLE access, level cap, progress wipe notes and what to play first.", "Live Test")
+body = hero("AION 2 Launch Scale Test", "Ended Global test hub for Steam and PURPLE access, level cap, progress wipe notes and what to check before Advanced Access.", "Live Test")
 body += content_section("Launch Scale Test Schedule", "<div class='table-wrap'><table><thead><tr><th>Window</th><th>PDT</th><th>CEST</th><th>What To Check</th></tr></thead><tbody><tr><th>Day 1</th><td>Sep 17, 6:00 AM-12:00 PM</td><td>Sep 17, 15:00-21:00</td><td>Login, server status, class creation and first build notes.</td></tr><tr><th>Day 2</th><td>Sep 18, 12:00 PM-6:00 PM</td><td>Sep 18, 21:00-Sep 19, 03:00</td><td>Confirm fixes, queues, dungeon access and level 37 build notes.</td></tr></tbody></table></div>")
 body += content_section("What Is Included", "<div class='summary'><div><b>Access</b><span>Steam and PURPLE test access.</span></div><div><b>Classes</b><span>All eight Global launch classes are the main test targets.</span></div><div><b>Level Cap</b><span>Plan around level 37 instead of endgame BIS.</span></div><div><b>Progress</b><span>Treat all test progress as temporary.</span></div></div>")
 body += content_section("How To Join And Download", "<ul><li>Use the Steam Playtest / AION 2 Steam entry if playing through Steam.</li><li>Use PURPLE if you prefer the NCSOFT launcher path.</li><li>No class rank should be finalized from the first hour of testing.</li><li>After the test, separate Steam Playtest client notes from the full launch client on September 30 and October 5.</li></ul>")
@@ -383,11 +383,12 @@ body += content_section("Edition Comparison", "<div class='table-wrap'><table><t
 body += content_section("Simple Recommendation", "<ul><li>Pick Standard if access is the only must-have.</li><li>Pick Deluxe only if the extra items are valuable to you personally.</li><li>Pick Ultimate only if you already expect to main the game at launch.</li><li>Skip upgrading just because a pre-launch tier list claims your class will be dominant.</li></ul>")
 write("founders-pack/which-edition/", page("AION 2 Standard vs Deluxe vs Ultimate", "AION 2 Standard vs Deluxe vs Ultimate Founder Pack comparison with prices and purchase recommendations.", "founders-pack/which-edition", body))
 
-body = hero("AION 2 Server Status", "Launch Scale Test server status, maintenance, queue and connection issue hub for Steam and PURPLE players.", "Status")
-body += content_section("Current Status", "<div class='summary'><div><b>AION 2 Global</b><span>Launch Scale Test window</span></div><div><b>Steam</b><span>Check Steam Playtest access and client state</span></div><div><b>PURPLE</b><span>Check launcher login and region access</span></div><div><b>Last Updated</b><span>September 17, 2026</span></div></div><p class='source-note'>This page tracks server intent. Use official launcher, Steam and publisher notices for the final live status before deciding whether an error is local.</p>")
-body += content_section("AION 2 Launch Scale Test Server Status", "<div class='table-wrap'><table><thead><tr><th>Status Item</th><th>What It Answers</th><th>Related Page</th></tr></thead><tbody><tr><th>Is AION 2 down?</th><td>Whether login, world access or queue behavior appears blocked during the test window.</td><td><a href='/launch-scale-test/'>Launch Scale Test</a></td></tr><tr><th>AION 2 maintenance</th><td>Whether a test window is unavailable because of scheduled or emergency maintenance.</td><td><a href='/meta/update-log/'>Update Log</a></td></tr><tr><th>Steam server status</th><td>Whether the Steam Playtest app is reachable and behaving differently from PURPLE.</td><td><a href='/preload-download/'>Download</a></td></tr><tr><th>PURPLE server status</th><td>Whether launcher login, region or client state is the likely issue.</td><td><a href='/preload-download/'>Download</a></td></tr></tbody></table></div>")
-body += content_section("Why Can't I Connect To AION 2?", "<ol><li>Confirm the current test window is open for your time zone.</li><li>Check whether Steam or PURPLE has a separate client/update issue.</li><li>Restart only after checking for maintenance or queue notices.</li><li>If the issue affects one platform only, track it separately from overall server status.</li></ol>")
-body += content_section("Server Status FAQ", "<div class='grid cards'>" + card("Does test progress carry over?", "Treat Launch Scale Test progress as temporary test data, not final launch progression.") + card("Should I reinstall after Steam Playtest?", "Separate Steam Playtest client notes from the full launch client before September 30.") + card("Where are builds?", "Use level 37 Launch Scale Test build pages, not endgame KR/TW assumptions.", "/builds/") + "</div>")
+body = hero("AION 2 Server Status", "Launch Scale Test ended; this hub tracks pre-launch server status, maintenance, queue and connection issue checks for Steam and PURPLE players.", "Status")
+body += content_section("Current Status", "<div class='summary'><div><b>AION 2 Global</b><span>No live Global server; pre-launch window before Advanced Access.</span></div><div><b>Steam</b><span>Uninstall the Steam Playtest App and download the full AION 2 client separately for Advanced Access.</span></div><div><b>PURPLE</b><span>No extra client action reported for PURPLE players; keep the launcher ready.</span></div><div><b>Last Updated</b><span>September 19, 2026</span></div></div><p class='source-note'>Launch Scale Test ended. Advanced Access is listed for September 30, 2026, and Official Launch is listed for October 5, 2026. Use official launcher, Steam and publisher notices for the final live status before deciding whether an error is local.</p>")
+body += content_section("AION 2 Server Status After LST", "<div class='table-wrap'><table><thead><tr><th>Status Item</th><th>Current Answer</th><th>Related Page</th></tr></thead><tbody><tr><th>Is AION 2 down?</th><td>No live Global server is available between the ended Launch Scale Test and the next access window.</td><td><a href='/launch-scale-test/'>Launch Scale Test</a></td></tr><tr><th>AION 2 maintenance</th><td>Maintenance reports should be checked against official notices once Advanced Access begins.</td><td><a href='/meta/update-log/'>Update Log</a></td></tr><tr><th>Steam server status</th><td>Steam players should separate Playtest App removal, full-client download and live server availability.</td><td><a href='/preload-download/'>Download</a></td></tr><tr><th>PURPLE server status</th><td>PURPLE players should watch launcher login, region access and any publisher notices.</td><td><a href='/preload-download/'>Download</a></td></tr></tbody></table></div>")
+body += content_section("Queue Policy To Watch", "<p>When servers are full, the launch flow can use a priority queue and a general queue. Priority queue access is not a guarantee, so a queue screen during Advanced Access may still be normal server-load behavior rather than a local connection problem.</p>")
+body += content_section("Why Can't I Connect To AION 2?", "<ol><li>Confirm whether Advanced Access or Official Launch is currently open for your time zone.</li><li>Steam players should remove the Steam Playtest App and install the full AION 2 client for September 30, 2026 access.</li><li>PURPLE players should keep the launcher ready and check official notices before reinstalling.</li><li>If access is open and only one platform is affected, track Steam and PURPLE issues separately from overall server status.</li></ol>")
+body += content_section("Server Status FAQ", "<div class='grid cards'>" + card("Does test progress carry over?", "Treat Launch Scale Test progress as temporary test data, not final launch progression.") + card("Should I reinstall after Steam Playtest?", "Steam players should uninstall the Steam Playtest App and download AION 2 separately before Advanced Access.") + card("Where are builds?", "Use post-LST build evidence pages, not endgame KR/TW assumptions.", "/builds/") + "</div>")
 write("server-status/", page("AION 2 Server Status - Is AION 2 Down?", "AION 2 server status for Launch Scale Test, maintenance, queue, Steam, PURPLE and connection issue checks.", "server-status", body))
 
 body = hero("AION 2 Preload & Download", "A cautious launch-prep page for download size, storage and preload status.", "Download")
@@ -524,7 +525,7 @@ all_urls += [f"/guides/{slug}/" for slug in guide_pages]
 sitemap = "\n".join(f"https://{SITE['domain']}{u}" for u in all_urls)
 write("sitemap.txt", sitemap)
 xml_sitemap = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n" + "\n".join(
-    f"  <url><loc>https://{SITE['domain']}{u}</loc><lastmod>2026-09-17</lastmod><changefreq>{'daily' if u in ['/', '/meta/update-log/', '/tier-list/class-tier-list/', '/server-status/', '/launch-scale-test/', '/builds/'] else 'weekly'}</changefreq><priority>{'1.0' if u == '/' else '0.8'}</priority></url>"
+    f"  <url><loc>https://{SITE['domain']}{u}</loc><lastmod>2026-09-19</lastmod><changefreq>{'daily' if u in ['/', '/meta/update-log/', '/tier-list/class-tier-list/', '/server-status/', '/launch-scale-test/', '/builds/'] else 'weekly'}</changefreq><priority>{'1.0' if u == '/' else '0.8'}</priority></url>"
     for u in all_urls
 ) + "\n</urlset>\n"
 write("sitemap.xml", xml_sitemap)
