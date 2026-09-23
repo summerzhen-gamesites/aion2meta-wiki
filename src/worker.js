@@ -6,6 +6,18 @@ export default {
       url.hostname = "aion2meta.wiki";
       return Response.redirect(url.toString(), 301);
     }
-    return env.ASSETS.fetch(request);
+
+    const response = await env.ASSETS.fetch(request);
+    if (url.pathname === "/dungeons/" || url.pathname === "/dungeons") {
+      const headers = new Headers(response.headers);
+      headers.set("Link", '<https://aion2meta.wiki/dungeons/>; rel="canonical"');
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers
+      });
+    }
+
+    return response;
   }
 };
