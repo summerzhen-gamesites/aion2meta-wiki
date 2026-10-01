@@ -37,6 +37,9 @@ jobs:
           grep -q "google-site-verification" public/index.html
           grep -q "googletagmanager.com/gtag/js" public/index.html
 
+      - name: Verify technical SEO and internal links
+        run: python check_technical_seo.py
+
       - name: Deploy Worker
         uses: cloudflare/wrangler-action@v3
         with:
